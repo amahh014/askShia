@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text
-} from 'react-native';
 
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createHttpLink } from 'apollo-link-http'
 import { ApolloProvider } from '@apollo/react-hooks'
 
-import Home from './home';
+import Router from './src/Router';
 
 const httpLink = createHttpLink({
   uri: 'https://fast-refuge-98871.herokuapp.com/'
@@ -24,7 +20,7 @@ const App: () => React$Node = () => {
   return (
     <>
     <ApolloProvider client={client}>
-        <Home />
+        <Router />
     </ApolloProvider>
     </>
   );
