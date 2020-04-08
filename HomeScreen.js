@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Profileicon from 'react-native-vector-icons/EvilIcons';
 
 import ListItem from './ListItem';
+import {useNavigation} from '@react-navigation/native';
+
 
 import {
     View,
@@ -12,33 +15,44 @@ import {
     ScrollView,
     ImageBackground,
     FlatList,
-    ActivityIndicator
+    ActivityIndicator,
+    TouchableOpacity
   } from 'react-native';
   
 
   function Home() {
-    const [posts, setPosts] = useState([]);
-    const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-  useEffect(() => {
-  if (data) {
-  setPosts(data.getPosts);
-      }
-    }, [data]);
+    const navigation = useNavigation();
+    const { loading, data, error } = useQuery(FETCH_POSTS_QUERY);
 
     if (loading) {
       return <ActivityIndicator size="large" color="#2A86FF" />
-    } else {
+    }
+
+    if(error) {
+      return <Text>Error occured...</Text>
+    }
+
   return (
-    <Container>
-      {posts && ( <FlatList 
+    <View>
+      <View style={styles.iconsView}>
+    <TouchableOpacity style={styles.create} onPress={() => navigation.push('Create Post')}>
+      <Icon name="ios-add" size={45} color="black"/>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.profile} onPress={() => navigation.push('Profile')}>
+      <Profileicon name="user" size={42} color='black'/>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.search}>
+      <Icon name="md-search" size={30} color='black'/>
+    </TouchableOpacity>
+    </View>
+    <FlatList 
     data={data.getPosts}
     renderItem={({item}) => <ListItem item={item}/>}
     keyExtractor={item => item.id}
-  />)}
-  </Container>
+  />
+  </View>
   )
 }
-  }
 
 const FETCH_POSTS_QUERY = gql`
   {
@@ -62,31 +76,38 @@ const FETCH_POSTS_QUERY = gql`
     }
   }
 `
-
-const Card = styled.View`
-  width: 348px;
-  height: 120px;
-  left: 11px;
-`;
-
-const Body = styled.Text`
-  width: 283px;
-  height: 67px;
-  left: 11px;
-  font-size: 14px;
-  line-height: 16px;
-`;
-
-const CreatedBy = styled.Text`
-  width: 64px;
-  height: 11px;
-  left: 295px;
-  font-size: 9px;
-  line-height: 11px;
-`;
-
-const Container = styled.View`
-  flex: 1;
-`;
+const styles = StyleSheet.create({
+  create: {
+    width: 37,
+    height: 35,
+    backgroundColor: 'rgba(196, 196, 196, 0.63)',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  iconsView: {
+    flexDirection: 'row',
+    left: 227,
+    top: 8
+  },
+  profile: {
+    width: 42,
+    height: 35,
+    backgroundColor: 'rgba(196, 196, 196, 0.63)',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 20
+  },
+  search: {
+    width: 37,
+    height: 35,
+    backgroundColor: 'rgba(196, 196, 196, 0.63)',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 40
+  },
+})
 
 export default Home;

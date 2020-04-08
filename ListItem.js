@@ -9,12 +9,9 @@ import {useNavigation} from '@react-navigation/native';
 const ListItem = ({item}) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity
+        <View
         style={styles.container}
-        onPress={() => navigation.push('Detail', {
-            id: item.id,
-            body: item.body
-        })}>
+        >
             <Text style={styles.username}>{item.username}</Text>
             <Text style={styles.date}>{moment(item.date).calendar()}</Text>
             <Text style={styles.body}>{item.body}</Text>
@@ -34,7 +31,16 @@ const ListItem = ({item}) => {
             <TouchableOpacity style={styles.commentCountIcon}>
                 <CommentIcon name="comment-discussion" color="rgba(65, 131, 215, 1)"/>
             </TouchableOpacity>
-        </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.seeDetails}
+              onPress={() => navigation.push('Detail', {
+                id: item.id,
+                body: item.body,
+                username: item.username
+            })}>
+                <Text style={styles.seeDetailsText}>See Details...</Text>
+            </TouchableOpacity>
+        </View>
     );
 };
 
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
         width: 18,
         height: 11,
         left: 94,
-        top: 130,
+        top: 133,
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 13,
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
         width: 15,
         height: 11,
         left: 54,
-        top: 130,
+        top: 133,
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 13,
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
         width: 8,
         height: 11,
         left: 139,
-        top: 130,
+        top: 133,
         fontStyle: 'normal',
         fontWeight: 'bold',
         fontSize: 13,
@@ -124,21 +130,35 @@ const styles = StyleSheet.create({
         width: 15,
         height: 15,
         left: 35,
-        top: 130
+        top: 133
     },
     likeCountIcon: {
         position: 'absolute',
         width: 15,
         height: 15,
         left: 75,
-        top: 130
+        top: 133
     },
     commentCountIcon: {
         position: 'absolute',
         width: 15,
         height: 15,
         left: 117,
-        top: 130
+        top: 133
+    },
+    seeDetails: {
+        position: 'absolute',
+        width: 100,
+        height: 16,
+        left: 275,
+        top: 125,
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        lineHeight: 16
+    },
+    seeDetailsText: {
+        color: '#2DB02A',
+        fontSize: 15.5
     }
 });
 
