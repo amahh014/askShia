@@ -4,9 +4,11 @@ import gql from 'graphql-tag'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profileicon from 'react-native-vector-icons/EvilIcons';
 
+
 import ListItem from './ListItem';
 import {useNavigation} from '@react-navigation/native';
 
+import Loader from './src/Loader';
 
 import {
     View,
@@ -25,7 +27,7 @@ import {
     const { loading, data, error } = useQuery(FETCH_POSTS_QUERY);
 
     if (loading) {
-      return <ActivityIndicator size="large" color="#2A86FF" />
+      return <Loader />
     }
 
     if(error) {

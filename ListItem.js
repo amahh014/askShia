@@ -4,6 +4,7 @@ import moment from 'moment'
 import Icon from 'react-native-vector-icons/AntDesign';
 import CommentIcon from 'react-native-vector-icons/Octicons';
 
+
 import {useNavigation} from '@react-navigation/native';
 
 const ListItem = ({item}) => {
@@ -47,7 +48,7 @@ const ListItem = ({item}) => {
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 80,
+		padding: 92,
 		borderBottomWidth: 8,
         borderColor: '#f1f1f1',
 	},

@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
+import { StyleSheet, TouchableOpacity, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -28,8 +29,29 @@ export default function App() {
           title: route.params.username
         })}/>
     <HomeStack.Screen name="Profile" component={Profile} />
-    <HomeStack.Screen name="Create Post" component={AddPost} />
+    <HomeStack.Screen name="Create Post" component={AddPost} options={{
+      headerRight: () => (
+        <TouchableOpacity
+              style={styles.button}
+              onPress={() => alert('This is a button!')}
+        >
+          <Text style={styles.text}>POST</Text>
+        </TouchableOpacity>
+      )
+    }}/>
     </HomeStack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    left: -22
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+    color: 'rgba(0, 0, 0, 0.58)'
+  }
+});
