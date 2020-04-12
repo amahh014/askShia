@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
         color: 'green'
       },
     username: {
-        width: 80,
-        height: 20,
+        width: 90,
+        height: 40,
         left: 78,
         top: -25,
         fontStyle: 'normal',

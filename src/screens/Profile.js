@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         padding: 50
     },
     username: {
-        width: 105,
-        height: 24,
+        width: 115,
+        height: 28,
         left: 110,
         top: 0,
         fontStyle: 'normal',
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
         left: -50
     },
     post: {
-        width: 52,
-        height: 23,
+        width: 55,
+        height: 28,
         top: 40,
         fontStyle: 'normal',
         fontWeight: 'bold',

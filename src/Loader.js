@@ -79,6 +79,30 @@ export default class Loader extends Component {
             <ShimmerPlaceHolder style={styles.loadereleven} autoRun={true}>
             </ShimmerPlaceHolder>
               </View>
+              <View>
+            <ShimmerPlaceHolder style={styles.loaderone} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loaderthree} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loadertwo} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loaderfour} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loaderfive} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loadersix} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loaderseven} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loadereight} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loadernine} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loaderten} autoRun={true}>
+            </ShimmerPlaceHolder>
+            <ShimmerPlaceHolder style={styles.loadereleven} autoRun={true}>
+            </ShimmerPlaceHolder>
+              </View>
         </View>
         )
     }
