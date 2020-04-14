@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'normal',
     fontStyle: 'normal',
-    color: 'rgba(0, 0, 0, 0.58)'
+    color: '#0000ff'
   }
 });
