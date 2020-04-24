@@ -9,8 +9,11 @@ import HomeScreen from '../HomeScreen';
 import Detail from '../src/screens/Detail';
 import Profile from '../src/screens/Profile';
 import AddPost from '../src/screens/AddPost';
+import Login from '../src/screens/Login';
+import Signup from '../src/screens/SignUp';
 
 const HomeStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -24,6 +27,8 @@ export default function App() {
         },
     }}>
     <HomeStack.Navigator>
+        <HomeStack.Screen name="Login" component={Login} />
+        <HomeStack.Screen name="Signup" component={Signup} />
         <HomeStack.Screen name="AskShia" component={HomeScreen} />
         <HomeStack.Screen name="Detail" component={Detail} options={({route}) => ({
           title: route.params.username
