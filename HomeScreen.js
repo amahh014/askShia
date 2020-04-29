@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   profile: {
     width: 42,
-    height: 35,
+    height: 36,
     backgroundColor: 'rgba(196, 196, 196, 0.63)',
     borderRadius: 20,
     alignItems: 'center',
