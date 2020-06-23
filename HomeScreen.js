@@ -44,7 +44,7 @@ import {
       <Profileicon name="user" size={42} color='black'/>
     </TouchableOpacity>
     <TouchableOpacity style={styles.search}>
-      <Icon name="md-search" size={30} color='black'/>
+      <Icon name="md-search" size={31} color='black'/>
     </TouchableOpacity>
     </View>
     <FlatList 
